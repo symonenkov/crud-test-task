@@ -1,0 +1,85 @@
+﻿<div ng-controller="userListCtrl as vm">
+    <div class="col-lg-12 col-md-12 col-sm-12" id="table">
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>UserID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in vm.users.data">
+                    <td>{{ user.user_id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.password }}</td>
+                    <td>
+                        <button type="button" class="btn btn-default" ng-click="vm.Update($event)" data-id="{{ user.user_id }}">Update</button>
+                        <button type="button" class="btn btn-danger" ng-click="vm.Delete($event)" data-id="{{ user.user_id }}">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <div class="row ">
+            <div id='update-table'>
+                <table class="table table-bordered">
+                <h3>Update</h3>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" name="name" ng-model="vm.nameToUpdate" value="{{vm.nameToUpdate}}" />
+                        </td>
+                        <td>
+                            <input type="text" name="email" ng-model="vm.emailToUpdate" value="{{vm.emailToUpdate}}" />
+                        </td>
+                        <td>
+                            <input type="text" name="password" ng-model="vm.passwordToUpdate" value="{{vm.passwordToUpdate}}" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button ng-click="vm.Save(vm.nameToUpdate, vm.emailToUpdate, vm.passwordToUpdate)" type="button" class="btn btn-primary btn-block">Save</button>
+            </div>
+            <div id='create-table'>
+                <table class="table table-bordered">
+                <h3>Create</h3>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" name="name" ng-model="post.PostName" />
+                        </td>
+                        <td>
+                            <input type="text" name="email" ng-model="post.PostEmail" />
+                        </td>
+                        <td>
+                            <input type="text" name="password" ng-model="post.PostPassword" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button ng-click="vm.Create(post.PostName, post.PostEmail, post.PostPassword)" type="button" class="btn btn-success btn-block">Create</button>
+            </div>
+            
+        </div>
+    </div>
+</div>
