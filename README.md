@@ -14,7 +14,7 @@ config.username = 'username';
 config.password = 'password';
 config.table_prefix = '';
 
-You\'re gonna need to create a DB named "test" or whatever you name it , import t_user.sql
+You'''re gonna need to create a DB named "test" or whatever you name it , import t_user.sql
 
 ## Installation
 
